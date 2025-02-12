@@ -29,7 +29,13 @@ const Game = () => {
 
   const handleKeyPress = (letter) => {
     if (!gameOver && currentGuess.length < 5) {
-      setCurrentGuess(currentGuess + letter);
+      setCurrentGuess((prev) => prev + letter);
+    }
+  };
+
+  const handleRemove = () => {
+    if (!gameOver && currentGuess.length > 0) {
+      setCurrentGuess((prev) => prev.slice(0, -1));
     }
   };
 
@@ -57,7 +63,7 @@ const Game = () => {
           Enter
         </button>
       </div>
-      <Keyboard onKeyPress={handleKeyPress} />
+      <Keyboard onKeyPress={handleKeyPress} onRemove={handleRemove} />
       {message && <p className="message">{message}</p>}
       <button onClick={restartGame} className="new-game-button">
         New Game
