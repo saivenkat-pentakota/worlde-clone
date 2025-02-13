@@ -1,0 +1,64 @@
+.gamepopup-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gamepopup-modal-content {
+    background: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .gamepopup-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .gamepopup-example {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .gamepopup-tile {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #ccc;
+    color: white;
+    background: transparent;
+  }
+  
+  .letter-U { 
+    background: gray; 
+  }
+  
+  
+  .green {
+    background: green;
+  }
+  
+  .yellow {
+    background: yellow;
+    color: black;
+  }
+  

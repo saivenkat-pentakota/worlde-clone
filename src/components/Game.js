@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WordGrid from "./WordGrid";
 import Keyboard from "./Keyboard";
+import GamePopup from "./GamePopup";
 import "./Game.css";
 
-const WORDS = ["APPLE", "BRAVE", "PLANT", "CHAIR", "TIGER"];
+const WORDS = ["APPLE", "BRAVE", "PLANT", "CHAIR", "TIGER", "DREAM", "PANIC", "AUDIO", "MINOR", "BRAIN", "ROUTE", "RELAX"];
 const getRandomWord = () => WORDS[Math.floor(Math.random() * WORDS.length)];
 
 const Game = () => {
@@ -12,6 +13,7 @@ const Game = () => {
   const [currentGuess, setCurrentGuess] = useState("");
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(true);
 
   const handleGuess = () => {
     if (currentGuess.length !== 5) return;
@@ -26,6 +28,10 @@ const Game = () => {
     setGuesses([...guesses, currentGuess]);
     setCurrentGuess("");
   };
+
+  useEffect(() => {
+    setTargetWord(getRandomWord());
+  }, []);
 
   const handleKeyPress = (letter) => {
     if (!gameOver && currentGuess.length < 5) {
@@ -49,6 +55,7 @@ const Game = () => {
 
   return (
     <div className="game-container">
+      {showPopup && <GamePopup onClose={() => setShowPopup(false)} />} {/* Show popup on game start */}
       <h1 className="title">Wordle Clone</h1>
       <WordGrid guesses={guesses} targetWord={targetWord} />
       <div className="input-container">
