@@ -55,7 +55,7 @@ const Game = () => {
 
   return (
     <div className="game-container">
-      {showPopup && <GamePopup onClose={() => setShowPopup(false)} />} {/* Show popup on game start */}
+      {showPopup && <GamePopup onClose={() => setShowPopup(false)} />}
       <h1 className="title">Wordle Clone</h1>
       <WordGrid guesses={guesses} targetWord={targetWord} />
       <div className="input-container">
